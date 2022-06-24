@@ -1,6 +1,6 @@
 <template>
 
-<div class="carrinho">
+<div class="carrinho"> 
   <header_main></header_main>
   <div class="conteiner m-4">
     <div class="row d-flex justify-content-center">
@@ -9,6 +9,7 @@
       </div>   
       <div class="col-2">
         <resumo-carrinho> </resumo-carrinho>
+        <CardPagamento></CardPagamento>
       </div>   
     </div>   
   </div> 
@@ -25,6 +26,7 @@ import header_main from './components/header-main'
 import footer_main from './components/footer-main'
 import resumoCarrinho from "./components/resumo-carrinho.vue";
 import produtosCarrinho from "./components/produtos-carrinho.vue";
+import CardPagamento from "./components/card-pagamento.vue";
 
 export default {
   
@@ -34,8 +36,8 @@ export default {
     header_main,
     footer_main,
     resumoCarrinho,
-    produtosCarrinho
-
+    produtosCarrinho,
+    CardPagamento,
 },
 
 }
