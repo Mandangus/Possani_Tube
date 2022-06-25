@@ -16,7 +16,7 @@
     </div>
 
     <div class="col">
-      <div class="row">
+      <div class="row mt-3">
         <div class="col offset-2">
           <button id="removeItem" type="button" class="btn btn-light">Remover</button> <br>
                     <img class="img-fluid" id="trash-icon" :src="trashIcon"/>
