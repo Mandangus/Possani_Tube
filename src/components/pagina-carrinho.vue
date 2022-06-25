@@ -2,12 +2,12 @@
 
 <div class="carrinho"> 
   <header_main></header_main>
-  <div class="conteiner m-4">
-    <div class="row d-flex justify-content-center">
-      <div class="col-6">  
+  <div class="conteiner m-4" >
+    <div class="row justify-content-center">
+      <div class="col- col-lg-8 col-xl-6" align="center" >  
         <produtosCarrinho> </produtosCarrinho>
       </div>   
-      <div class="col-2">
+      <div class="col- col-lg-4 col-xl-2" align="center">
         <resumo-carrinho> </resumo-carrinho>
         <CardPagamento></CardPagamento>
       </div>   
@@ -27,7 +27,6 @@ import footer_main from './components/footer-main'
 import resumoCarrinho from "./components/resumo-carrinho.vue";
 import produtosCarrinho from "./components/produtos-carrinho.vue";
 import CardPagamento from "./components/card-pagamento.vue";
-
 export default {
   
   name: 'App',
@@ -39,12 +38,10 @@ export default {
     produtosCarrinho,
     CardPagamento,
 },
-
 }
 </script>
 
 <style>
-
 #card-aula{
   padding: 5px;
 }
