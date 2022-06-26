@@ -3,6 +3,7 @@
         <header_main></header_main>
         <div id="home">
           <h2 id="section-title">Títulos mais vendidos!</h2>
+          <login_form></login_form>
           <section id="contents">
           <div class="col-md-4" v-for="aula in aulas" :key="aula.nome">
           <div id="card-aula">
@@ -12,7 +13,7 @@
                 <h4 class="card-title">{{ aula.nome }}</h4>
                 <div class="card-text">{{ aula.price }}</div>
                 <div class="row justify-content-end">
-                  <button class="btn btn-primary">Add to cart</button>
+                  <button class="btn btn-primary">Ver produto</button>
                 </div>
                 </div>
               </div>
@@ -47,11 +48,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import header_main from './components/header-main'
 import footer_main from './components/footer-main'
+//import pagina_carr from './components/pagina-carrinho'
+import login_form from './components/Login'
 export default {
   
   name: 'App',
   
   components: {
+  //  pagina_carr,
+    login_form,
     header_main,
     footer_main,
   },
@@ -96,7 +101,9 @@ export default {
 </script>
 
 <style>
+.card-img-top{
 
+}
 #card-aula{
   padding: 5px;
 }

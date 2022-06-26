@@ -1,0 +1,557 @@
+/* Desktop - 1 */
+*{
+    color: #E82B2B;
+    font-size: xx-large;
+    font-family: 'Courier New', Courier, monospace;
+}
+#desk-box{
+    position: relative;
+    width: 2296px;
+    height: 966px;
+
+    background: #FFFFFF;
+}
+
+
+/* Box preço */
+
+#box-price{
+    position: absolute;
+    width: 535px;
+    height: 105px;
+    left: 1422px;
+    top: 260px;
+
+    background: #E82B2B;
+    border-radius: 10px;
+}
+
+/* Background video */
+
+#box-video{
+    position: absolute;
+    width: 1340px;
+    height: 714px;
+    left: 16px;
+    top: 227px;
+
+    background: #C4C4C4;
+
+}
+/* Duração: 1h25min */
+
+#texto-dur{
+    position: absolute;
+    width: 369px;
+    height: 59px;
+    left: calc(50% - 369px/2 - 963.5px);
+    top: calc(50% - 59px/2 + 434.5px);
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #000000;
+}
+
+
+/* Cálculo de sólidos de revolução pt.2 */
+
+#titulo-vid{
+    position: absolute;
+    width: 1131px;
+    height: 83px;
+    left: -129px;
+    top: 168px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+
+    color: #992CDC;
+}
+
+
+/* Screenshot (30) 1 */
+
+#video{
+    position: absolute;
+    width: 1281px;
+    height: 559px;
+    left: 37px;
+    top: 305px;
+
+}
+/* Assunto: Toro de Revolução */
+
+#assunto{
+    position: absolute;
+    width: 369px;
+    height: 59px;
+    left: calc(50% - 369px/2 - 947.5px);
+    top: calc(50% - 59px/2 - 202.5px);
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #000000;
+
+}
+
+/* Disciplina: Cálculo 3 */
+
+#disc{
+    position: absolute;
+    width: 369px;
+    height: 59px;
+    left: calc(50% - 369px/2 - 590.5px);
+    top: calc(50% - 59px/2 - 202.5px);
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #000000;
+}
+
+
+/* botão comprar */
+
+#botao-compr{
+    position: absolute;
+    width: 255px;
+    height: 82px;
+    left: 1937px;
+    top: 830px;
+
+    background: #FF7715;
+    /* 08 dp */
+
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Comprar */
+
+#text-comprar{
+    position: absolute;
+    width: 155px;
+    height: 44px;
+    left: 1987px;
+    top: 849px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+
+/* Por apenas: */
+
+#text-promo{
+    position: absolute;
+    width: 293px;
+    height: 67px;
+    left: 1407px;
+    top: 286px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+
+/* R$ 400,00 */
+
+#price{
+    position: absolute;
+    width: 308px;
+    height: 65px;
+    left: 1629px;
+    top: 286px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+/* Box descrição */
+
+#box-desc{
+    position: absolute;
+    width: 721px;
+    height: 327px;
+    left: 1407px;
+    top: 447.5px;
+
+    background: #EFF321;
+}
+/* Descrição: */
+
+#text-desc{
+    position: absolute;
+    width: 189px;
+    height: 44px;
+    left: 1407px;
+    top: 399px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+}
+
+
+/* Header */
+
+#header{
+    position: absolute;
+    width: 2296px;
+    height: 141px;
+    left: 0px;
+    top: -12px;
+
+    background: #C53EB7;
+}
+
+/* Possani’s Store */
+
+#poss-store-title{
+    position: absolute;
+    width: 563px;
+    height: 51px;
+    left: 38px;
+    top: 21px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+
+    color: #000000;
+}
+
+
+/* Input search header */
+
+#input-search-header{
+    position: absolute;
+    width: 809px;
+    height: 32px;
+    left: 692px;
+    top: 45px;
+
+    background: #FFFFFF;
+}
+
+/* Foto de perfil */
+
+#pfp{
+    position: absolute;
+    width: 122px;
+    height: 117px;
+    left: 1629px;
+    top: 12px;
+
+    background: url(possani.jpg);
+}
+
+/* Olá, username */
+
+/*
+position: absolute;
+width: 443px;
+height: 26px;
+left: 1800px;
+top: 12px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+
+
+
+/* minha conta | Sair 
+
+
+position: absolute;
+width: 343px;
+height: 30px;
+left: 1800px;
+top: 77px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+
+
+
+/* Todas matérias 
+
+
+position: absolute;
+width: 692px;
+height: 37px;
+left: 0px;
+top: 129px;
+
+background: #8A8A8A;
+
+
+/* Box matérias 
+
+
+position: absolute;
+width: 1604px;
+height: 37px;
+left: 692px;
+top: 129px;
+
+background: #B8B8B8;
+
+
+/* Estatística 
+
+
+position: absolute;
+width: 196px;
+height: 24px;
+left: 928px;
+top: 133px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+
+
+
+/* Álgebra Linear 
+
+
+position: absolute;
+width: 285px;
+height: 24px;
+left: 1182px;
+top: 136px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+
+
+
+/* Geometria analítica 
+
+
+position: absolute;
+width: 396px;
+height: 24px;
+left: 1525px;
+top: 138px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+
+
+
+/* Todas as matérias <<< 
+
+
+position: absolute;
+width: 430px;
+height: 19px;
+left: 241px;
+top: 138px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #FFFFFF;
+
+
+
+/* Cálculo 
+
+
+position: absolute;
+width: 143px;
+height: 24px;
+left: 717px;
+top: 133px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+
+
+
+/* Busque aqui 
+
+
+position: absolute;
+width: 239px;
+height: 22px;
+left: 717px;
+top: 48px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #9C9C9C;
+
+
+
+/* Nesta imperdível aula você irá presenciar o incrível, Claudio Possani, demonstrar como a amtemática é linda através do cálculo de diversos sólidos e formatos FORA DESTE PLANETA!!!! */
+
+#desc{
+
+    position: absolute;
+    width: 622px;
+    height: 257px;
+    left: 1457px;
+    top: 530px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #000000;
+}
+
+
+/* Rectangle 9 
+
+
+position: absolute;
+width: 436px;
+height: 109px;
+left: 1421px;
+top: 809px;
+
+background: #C53EB7;
+border-radius: 20px;
+
+
+/* Rectangle 10 
+
+
+position: absolute;
+width: 397px;
+height: 31px;
+left: 1440px;
+top: 856px;
+
+background: #FFFFFF;
+
+
+/* amopossani1234 
+
+
+position: absolute;
+width: 193px;
+height: 29px;
+left: 1446px;
+top: 859px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height 
+
+text-align: center;
+
+color: #B8B8B8;
+
+
+
+/* Inserir Cupom: 
+
+
+position: absolute;
+width: 225px;
+height: 22px;
+left: 1407px;
+top: 819px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+
+color: #000000;

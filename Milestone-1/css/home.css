@@ -1,0 +1,47 @@
+.homepage{
+    background-color: var(--branco-neve);
+    margin-top: -1.7cm;
+}
+section{
+    border-bottom: 4px;
+    border-color: var(--cinza);
+    border-style: solid;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section-title{
+    padding: 10px;
+    font-family: 'Roboto',sans-serif;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.card{
+    padding: 10px;
+    margin: 10px;
+    height: auto;
+    width: auto;
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--branco);
+}
+.card-text{
+    padding: 5px;
+    font-size: large;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.card-buy{
+    font-weight: bolder;
+    font-size: x-large;
+    color: var(--laranja);
+}
+
+.buy-button{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--laranja);
+}
