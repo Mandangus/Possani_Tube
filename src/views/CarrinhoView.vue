@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #card-aula{
   padding: 5px;
 }

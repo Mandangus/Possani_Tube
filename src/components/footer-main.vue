@@ -92,7 +92,7 @@
 </template>
 
 
-<style>
+<style scoped>
 #footer{
     margin-top: 100px;
 }

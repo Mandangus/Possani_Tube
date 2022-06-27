@@ -28,6 +28,18 @@ const routes = [
     component: () => import('../views/ProdutoView.vue')
   },
 
+  {
+    path: '/perfil',
+    name: 'perfil',
+    component: () => import('../views/UserdataView.vue')
+  },
+  
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/UserdataView.vue')
+  },
+
 ]
 
 const router = createRouter({

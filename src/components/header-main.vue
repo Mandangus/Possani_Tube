@@ -26,7 +26,7 @@
             </ul>
           </li>
           <li>
-           <router-link to="/login" ><img src="@/assets/icones/Profile_avatar_placeholder_large.png" class="imagem mt-2"></router-link>          
+           <router-link to="/perfil" ><img src="@/assets/icones/Profile_avatar_placeholder_large.png" class="imagem mt-2"></router-link>          
           </li>
         </ul>
         <form class="d-flex">

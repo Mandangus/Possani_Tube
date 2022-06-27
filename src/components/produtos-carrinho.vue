@@ -46,32 +46,32 @@ export default{
         {
           nome:'Álgebra Linear ',
           price: 'R$ 120.00',
-          image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvidaconmascotas.com%2Fwp-content%2Fuploads%2F2021%2F01%2F1610477250_El-gato-habla-mucho-%25C2%25BFque-nos-quiere-decir-850x500.jpg&f=1&nofb=1',
+          image: require('@/assets/thumbnails/calc3.png'),
         },
         {
           nome:'Geometria Analítica ',
           price: 'R$ 20.00',
-          image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.grouphealth.ca%2Fwp-content%2Fuploads%2F2018%2F05%2Fplaceholder-image-300x225.png&f=1&nofb=1',
+          image: require('@/assets/thumbnails/pgeometrica.png'),
         },
         {
           nome:'Estatística Básica ',
           price: 'R$ 220.00',
-          image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.grouphealth.ca%2Fwp-content%2Fuploads%2F2018%2F05%2Fplaceholder-image-300x225.png&f=1&nofb=1',
+          image: require('@/assets/thumbnails/pgeometrica.png'),
         },
         {
           nome:'Cálculo 4 ',
           price: 'R$ 120.00',
-          image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.grouphealth.ca%2Fwp-content%2Fuploads%2F2018%2F05%2Fplaceholder-image-300x225.png&f=1&nofb=1',
+          image: require('@/assets/thumbnails/calculo4.png'),
         },
         {
           nome:'Cálculo 4 ',
           price: 'R$ 120.00',
-          image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.grouphealth.ca%2Fwp-content%2Fuploads%2F2018%2F05%2Fplaceholder-image-300x225.png&f=1&nofb=1',
+          image: require('@/assets/thumbnails/calculo4.png'),
         },
         {
           nome:'Cálculo 4 ',
           price: 'R$ 120.00',
-          image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.grouphealth.ca%2Fwp-content%2Fuploads%2F2018%2F05%2Fplaceholder-image-300x225.png&f=1&nofb=1',
+          image: require('@/assets/thumbnails/calculo4.png'),
         }
       ],
       
