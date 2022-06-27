@@ -75,7 +75,7 @@ export default{
         }
       ],
       
-      trashIcon: require('@/assets/trash-icon.png'),
+      trashIcon: require('@/assets/icones/trash-icon.png'),
 
     }
   }

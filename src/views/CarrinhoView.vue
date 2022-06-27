@@ -1,7 +1,6 @@
 <template>
 
 <div class="carrinho"> 
-  <header_main></header_main>
   <div class="conteiner m-4" >
     <div class="row justify-content-center">
       <div class="col- col-lg-8 col-xl-6" align="center" >  
@@ -13,20 +12,18 @@
       </div>   
     </div>   
   </div> 
- 
-  <footer_main></footer_main>
-</div> 
+ </div> 
 </template>
 
 <script>
 import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import header_main from './header-main'
-import footer_main from './footer-main'
-import resumoCarrinho from "./resumo-carrinho.vue";
-import produtosCarrinho from "./produtos-carrinho.vue";
-import CardPagamento from "./card-pagamento.vue";
+import header_main from '@/components/header-main'
+import footer_main from '@/components/footer-main'
+import resumoCarrinho from "@/components/resumo-carrinho.vue";
+import produtosCarrinho from "@/components/produtos-carrinho.vue";
+import CardPagamento from "@/components/card-pagamento.vue";
 export default {
   
   name: 'App',

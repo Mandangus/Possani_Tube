@@ -66,7 +66,7 @@ export default{
           detalhes: 'Nesta aula introdutória do curso, o incrível Prof. Cláudio Possani faz um panorama das ideias abordadas pela disciplina e de sua importância na formação de um engenheiro ',
         },
         
-        cartIcon: require('@/assets/cart.png'),
+        cartIcon: require('@/assets/icones/cart.png'),
 
         }
     }
