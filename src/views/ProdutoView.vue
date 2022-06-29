@@ -16,9 +16,11 @@
 
     <div class="row justify-content-center" align="center">
         <div class="col- col-lg-5">     
-            <div class="card border-dark p-2 mt-4" id="descript" style="width: 25rem; height: 15rem;">
+            <div class="card border-dark p-2 mt-4" id="descript" style="width: 25rem;">
                 <h5 class="card-title">Descrição</h5>
                 <p class="card-text" style="line-height: 230%;">{{aula.description}}</p>
+                <button class="btn btn-primary mb-1 mx-5" v-if="user.isAdm">Alterar Descrição</button> 
+
             </div>
         </div>
         <div class="col- col-lg-5 ">
@@ -28,7 +30,10 @@
                         <h3 id="preco">{{aula.price}} </h3> 
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary btn-lg" type="submit">
+                        <button class="btn btn-primary btn-lg" type="submit" v-if="user.isAdm" style="font-size: medium;">
+                            Alterar Preço
+                        </button>
+                        <button class="btn btn-primary btn-lg" type="submit" v-else>
                             <img :src="cartIcon" width="35" />
                             Comprar
                         </button>
@@ -39,6 +44,9 @@
                 <div class="row mt-4">
                     <div class="col">     
                         <p>{{aula.detalhes}}</p>
+                        <button class="btn btn-primary btn-lg mb-3" type="submit" v-if="user.isAdm">
+                            Alterar Detalhes
+                        </button>
                     </div>
 
                 </div>
@@ -56,6 +64,12 @@ export default{
 
     data: ()=>{
         return {
+      
+      user: {
+        name: 'Cláudio Possani',
+        isAdm: true,
+      },
+
 
         aula:
         {

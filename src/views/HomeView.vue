@@ -12,7 +12,11 @@
                 <div class="card-text">{{ aula.price }}</div>
                 <div class="row justify-content-end">
                   <div class="col">
-                    <router-link to="/produto" > <button class="btn btn-primary">Ver produto</button> </router-link>
+                    <router-link to="/produto" > 
+                      <button class="btn btn-primary" v-if="!user.isAdm">Ver produto</button> 
+                      <button class="btn btn-primary" v-else>Gerenciar produto</button> 
+                    </router-link>
+
                   </div>            
                 </div>
                 </div>
@@ -31,8 +35,10 @@
                 <div class="card-text">{{ aula.price }}</div>
                 <div class="row justify-content-end"> 
                   <div class="col">
-                  <router-link to="/produto" > <button class="btn btn-primary">Ver produto</button> </router-link>            
-                  </div>
+                    <router-link to="/produto" > 
+                      <button class="btn btn-primary" v-if="!user.isAdm">Ver produto</button> 
+                      <button class="btn btn-primary" v-else>Gerenciar produto</button> 
+                    </router-link>                  </div>
                 </div>
                 </div>
               </div>
@@ -57,6 +63,12 @@ export default {
 
   data: ()=>{
     return {
+
+      user: {
+        name: 'Cláudio Possani',
+        isAdm: true,
+      },
+
       aulas: [
         {
           nome:'Álgebra Linear ',

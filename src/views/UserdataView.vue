@@ -20,8 +20,6 @@
                         <button id="changePic" type="button" class="btn  btn">Alterar foto</button>
                         </div>
                     </div>
-
-
         </div>
 
                 
