@@ -15,7 +15,7 @@
                     <router-link to="/produto" > 
                       <button class="btn btn-primary" v-if="!user.isAdm">Ver produto</button> 
                       <button class="btn btn-primary" v-else>Gerenciar produto</button> 
-                    </router-link>                  
+                    </router-link>
                   </div>            
                 </div>
                 </div>
@@ -37,14 +37,14 @@
                     <router-link to="/produto" > 
                       <button class="btn btn-primary" v-if="!user.isAdm">Ver produto</button> 
                       <button class="btn btn-primary" v-else>Gerenciar produto</button> 
-                    </router-link>                      
+                    </router-link>                  
                   </div>
+                </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-            </section>
+          </section>
         </div>
 </div>
 </template>
@@ -53,19 +53,55 @@
 import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import items from "../data/items.js"
-import usuario from "../data/usuario.js"
-
 
 export default {
   
   name: 'App',
   
-  data: () => {
-      return {
-        user: usuario,
-        aulas: items
-      }
+  components: {
+  },
+
+  data: ()=>{
+    return {
+
+      user: {
+        name: 'Cláudio Possani',
+        isAdm: false,
+      },
+
+      aulas: [
+        {
+          nome:'Álgebra Linear ',
+          price: 'R$ 120.00',
+          image: require('@/assets/thumbnails/calc3.png'),
+        },
+        {
+          nome:'Geometria Analítica ',
+          price: 'R$ 20.00',
+          image: require('@/assets/thumbnails/pgeometrica.png'),
+        },
+        {
+          nome:'Estatística Básica ',
+          price: 'R$ 220.00',
+          image: require('@/assets/thumbnails/pgeometrica.png'),
+        },
+        {
+          nome:'Cálculo 4 ',
+          price: 'R$ 120.00',
+          image: require('@/assets/thumbnails/calculo4.png'),
+        },
+        {
+          nome:'Cálculo 4 ',
+          price: 'R$ 120.00',
+          image: require('@/assets/thumbnails/calculo4.png'),
+        },
+        {
+          nome:'Cálculo 4 ',
+          price: 'R$ 120.00',
+          image: require('@/assets/thumbnails/calculo4.png'),
+        }
+      ]
+    }
   }
 }
 </script>
