@@ -15,7 +15,8 @@
     "mdb-vue-ui-kit": "^1.14.0",
     "vue": "^3.2.13",
     "vue-popperjs": "^2.3.0",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",

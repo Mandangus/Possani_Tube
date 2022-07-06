@@ -1,10 +1,12 @@
 <template>
 
 <div class="container shadow-lg" id>
-  <div class="row align-items-center border-bottom" v-for="(aula, index) in aulas" :key="aula.nome">
+  <div class="row align-items-center border-bottom" v-for="aula in cart" :key="aula.nome">
+  <!-- <div class="row align-items-center border-bottom" v-for="(aula, index) in aulas" :key="aula.nome"> -->
     
     <div class="col">
-      <img class="img-fluid" v-bind:src="aulas[index].image" :alt="aulas.nome" />
+      <img class="img-fluid" v-bind:src="aula.image" />
+      <!-- <img class="img-fluid" v-bind:src="aulas[index].image" :alt="aulas.nome" /> -->
     </div>
 
     <div class="col">
@@ -18,7 +20,8 @@
     <div class="col">
       <div class="row mt-3">
         <div class="col offset-2">
-          <button id="removeItem" type="button" class="btn btn-light">Remover</button> <br>
+          <button id="removeItem" type="button" class="btn btn-light" @click="removeFromCart(aula)">Remover</button> <br>
+          <!-- <button id="removeItem" type="button" class="btn btn-light" @click="removeFromCart(aula)">Remover</button> <br> -->
                     <img class="img-fluid" id="trash-icon" :src="trashIcon"/>
 
         </div>
@@ -38,47 +41,21 @@
 
 export default{
     name: 'resumo_carrinho',
-    
-
-  data: ()=>{
-    return {
-      aulas: [
-        {
-          nome:'Álgebra Linear ',
-          price: 'R$ 120.00',
-          image: require('@/assets/thumbnails/calc3.png'),
-        },
-        {
-          nome:'Geometria Analítica ',
-          price: 'R$ 20.00',
-          image: require('@/assets/thumbnails/pgeometrica.png'),
-        },
-        {
-          nome:'Estatística Básica ',
-          price: 'R$ 220.00',
-          image: require('@/assets/thumbnails/pgeometrica.png'),
-        },
-        {
-          nome:'Cálculo 4 ',
-          price: 'R$ 120.00',
-          image: require('@/assets/thumbnails/calculo4.png'),
-        },
-        {
-          nome:'Cálculo 4 ',
-          price: 'R$ 120.00',
-          image: require('@/assets/thumbnails/calculo4.png'),
-        },
-        {
-          nome:'Cálculo 4 ',
-          price: 'R$ 120.00',
-          image: require('@/assets/thumbnails/calculo4.png'),
+    computed: {
+      cart() {
+        return this.$store.getters.cartItems
+      }
+    },
+    data: () => {
+        return {
+            trashIcon: require('@/assets/icones/trash-icon.png')
         }
-      ],
-      
-      trashIcon: require('@/assets/icones/trash-icon.png'),
-
+    },
+    methods: {
+        removeFromCart(aula) {
+            this.$store.commit('removeFromCart', aula)
+        }
     }
-  }
 
 
 }

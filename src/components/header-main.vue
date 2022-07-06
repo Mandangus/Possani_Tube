@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="height: 82px;">
           <li class="nav-item">
             <router-link to="/carrinho" class="nav-link active" aria-current="page">Carrinho</router-link>
 
@@ -25,9 +25,34 @@
               <li><router-link to="/" class="dropdown-item" >Novas Matérias</router-link></li>
             </ul>
           </li>
-          <li>
-           <router-link to="/perfil" ><img src="@/assets/icones/Profile_avatar_placeholder_large.png" class="imagem mt-2"></router-link>          
+          <li v-if="user.login">
+            <router-link to="/perfil"><img src="@/assets/icones/Profile_avatar_placeholder_large.png" class="imagem mt-2"></router-link>          
+          </li>  
+          
+          <li v-if="user.login" >
+            <ul id="profile">
+              <li>
+                <router-link to="/perfil" style="text-decoration: none; color: inherit; font-weight: 500;"> 
+                  <b>Minha conta</b>
+                </router-link> 
+              <li>
+                <b>Sair</b>
+              </li>  
+              </li>
+            </ul>
           </li>
+
+        <li v-else>
+            <router-link to="/login" style="text-decoration: none; color: inherit; font-weight: 500;">
+            <ul id="login">
+             <li >Faça <b>login</b> ou</li>
+             <li>Crie seu <b>cadastro</b></li>
+            </ul>
+            </router-link>
+          </li> 
+          
+            
+          
         </ul>
         <form class="d-flex">
           <input class="form-control me-3" type="search" placeholder="Pesquisar" aria-label="Search">
@@ -38,6 +63,20 @@
   </nav>
 </template>
 
+<script>
+import usuario from "../data/usuario.js"
+
+export default {
+  
+  name: 'header',
+  
+  data: () => {
+      return {
+        user: usuario,
+      }
+  }
+}
+</script>
 
 <style scoped>
 .nav-item{
@@ -55,5 +94,23 @@
 }
 .dropdown-item{
   color: black;
+}
+#login{
+  list-style-type: none; 
+  padding: 0; 
+  margin-top: 20px;
+  margin-left: 10px;
+  text-align: left;
+  text-decoration: none;
+  text-decoration-line: none;
+}
+#profile{
+  list-style-type: none; 
+  padding: 0; 
+  margin-top: 20px;
+  margin-left: 10px;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-line: none;
 }
 </style>
