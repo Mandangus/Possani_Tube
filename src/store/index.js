@@ -11,6 +11,13 @@ export default createStore({
     getters: {
         cartItems: state => {
             return state.cart
+        },
+        cartPrice: state => {
+            let soma = 0
+            for (let i = 0; i < state.cart.length; i++) {
+                soma += state.cart[i].price
+            }
+            return soma;
         }
     },
     mutations: {

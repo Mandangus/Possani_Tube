@@ -14,7 +14,7 @@
     </div>
 
     <div class="col">
-      {{aula.price}}
+      R${{aula.price}}
     </div>
 
     <div class="col">

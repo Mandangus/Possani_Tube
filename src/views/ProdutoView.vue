@@ -82,7 +82,7 @@ export default{
 
             item: {
                 nome:'Álgebra Linear ',
-                price: 'R$ 120.00',
+                price: 120.00,
                 image: require('@/assets/thumbnails/calc3.png')
             }
         }
