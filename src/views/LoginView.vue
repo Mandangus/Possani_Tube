@@ -3,12 +3,12 @@
     <div class="center_block mt-5">
       <div class="login_page">
         <h1 class="log_text search-bar">LOGIN</h1><br>
-        <form action="cadastro.php" method="POST">
+        <form>
           <input type="email" name="email" placeholder="Email" required v-model="login_email"><br>
           <br>
           <input type="password" name="senha" placeholder="Senha" required v-model="login_pwd"><br>
           <br>
-          <input type="submit" name="entrar" value="ENTRAR">
+          <input type="submit" name="entrar" value="ENTRAR" @click="checkUser">
         </form>
         <br>
         <a href="#"> <u>Esqueci minha senha</u></a>
@@ -25,18 +25,21 @@
 
       <div class="signup_page">
         <h1 class="log_text search-bar">CRIAR CADASTRO</h1> <br>
-        <form action="cadastro.php" method="POST">
+        <form>
+          <input type="text" name="nome" placeholder="Nome" required v-model="name"><br>
+          <br>
           <input type="email" name="email" placeholder="Email" required v-model="signup_email"><br>
           <br>
           <input type="password" name="senha" placeholder="Senha" required v-model="signup_pwd"><br>
           <br>
           <input type="password" name="c_senha" placeholder="Confirme sua senha" required v-model="signup_cpwd"><br>
+          <span v-if="signup_pwd !== signup_cpwd"> As senhas não correspondem </span>
           <br>
           <input type="text" name="endereço" placeholder="Endereço" required v-model="address"><br>
           <br>
-          <input type="tel" name="celular" placeholder="Celular" required v-model="phone"><br>
-          <br>
-          <input type="submit" name="entrar" value="CADASTRAR">
+          <!-- <input type="tel" name="celular" placeholder="Celular" required v-model="phone"><br>
+          <br> -->
+          <input type="submit" name="entrar" value="CADASTRAR" @click="addUser">
         </form>
       </div>
     </div>
@@ -48,16 +51,47 @@ export default {
   name: 'Login-comp',
   data() {
     return {
+      name: "",
       login_email: "",
       login_pwd: "",
       signup_email: "",
       signup_pwd: "",
       signup_cpwd: "",
-      address: "",
-      phone: ""
+      address: ""
+      // phone: ""
     }
   },
   methods: {
+      checkUser: async function() {
+          try {
+              let route = "http://localhost:3000/store/"+ this.login_email
+              let resp = await fetch(route);	
+              resp = await resp.json();
+              resp = JSON.stringify(resp)
+              if (resp === []) console.log("Usuario inexistente")
+              else console.log("resp: "+ JSON.stringify(resp));
+            }
+          catch (e) {console.log("Usuario inexistente")}//{alert("Error: " + e);}
+          },
+      addUser: async function() {
+            try {
+                let route = "http://localhost:3000/store/"
+                fetch(route, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    "name": this.name,
+                    "email": this.signup_email,
+                    "password": this.signup_pwd,
+                    "address": this.address,
+                    "active": true
+                  })
+                });	
+              }
+            catch (e) {alert("Error: " + e);}
+        } 
   }
 }
 </script>
@@ -133,5 +167,8 @@ input[type="submit"] {
     margin: auto;
 }
 
+span {
+  color: red;
+}
 
 </style>
