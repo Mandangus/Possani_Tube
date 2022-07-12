@@ -4,6 +4,9 @@
     <div class="row justify-content-md-center">
         <div class="col">
             <h3>{{aula.nome}}</h3>
+            <button class="btn btn-primary btn mb-3" type="submit" v-if="user.isAdm">
+                 Remover Aula
+            </button>
         </div>
     </div>
 

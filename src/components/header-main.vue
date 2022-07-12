@@ -1,19 +1,19 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <router-link to="/" class="navbar-brand mt-3" >Possani's Store</router-link>
+      <router-link to="/" class="navbar-brand" >Possani's Store</router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="height: 82px;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/carrinho" class="nav-link active" aria-current="page">Carrinho</router-link>
+            <router-link to="/carrinho" class="nav-link active py-0" aria-current="page">Carrinho</router-link>
 
           </li>
           <li class="nav-item dropdown">
 
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle py-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Matérias
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -25,24 +25,24 @@
               <li><router-link to="/" class="dropdown-item" >Novas Matérias</router-link></li>
             </ul>
           </li>
-          <li v-if="user.login">
-            <router-link to="/perfil"><img src="@/assets/icones/Profile_avatar_placeholder_large.png" class="imagem mt-2"></router-link>          
-          </li>  
-          
-          <li v-if="user.login" >
-            <ul id="profile">
-              <li>
-                <router-link to="/perfil" style="text-decoration: none; color: inherit; font-weight: 500;"> 
-                  <b>Minha conta</b>
-                </router-link> 
-              <li>
-                <b>Sair</b>
-              </li>  
-              </li>
-            </ul>
-          </li>
-
-        <li v-else>
+          <template v-if="user.login">
+            <li class="py-0">
+              <router-link to="/perfil"><img src="@/assets/icones/Profile_avatar_placeholder_large.png" class="imagem mt-2"></router-link>          
+            </li>              
+            <li>
+              <ul id="profile">
+                <li>
+                  <router-link to="/perfil" style="text-decoration: none; color: inherit; font-weight: 500;"> 
+                    <b>Minha conta</b>
+                  </router-link> 
+                <li>
+                  <b>Sair</b>
+                </li>  
+                </li>
+              </ul>
+            </li>
+          </template>
+        <li v-else class="mb-3">
             <router-link to="/login" style="text-decoration: none; color: inherit; font-weight: 500;">
             <ul id="login">
              <li >Faça <b>login</b> ou</li>
@@ -100,7 +100,6 @@ export default {
   padding: 0; 
   margin-top: 20px;
   margin-left: 10px;
-  text-align: left;
   text-decoration: none;
   text-decoration-line: none;
 }
