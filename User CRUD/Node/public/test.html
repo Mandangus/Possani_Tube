@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <meta>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+  </meta>
+ 
+  <body>
+ 
+    <div id="app">
+      <h2>Video Information</h2>
+      
+      <label>ID</label> <input v-model="id" type="text">
+      <br> <br>
+      <label>Title</label> <input v-model="title" type="text"> 
+      <br> <br>
+      <label>Slug</label>    <input v-model="slug"    type="text">
+      <br> <br>
+      <label>Description</label>  <input v-model="description"  type="text">
+      <br> <br>
+      <label>Price</label>  <input v-model="price"  type="text">
+      <br> <br>
+      <input type="button" value="Read" @click="read">
+      <input type="button" value="Delete" @click="del">
+      <input type="button" value="Create" @click="create">
+    </div>
+    
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.6/vue.min.js">
+    </script>
+ 
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+            id: "",
+            title: "",
+            slug: "",
+            description: "",
+            price: ""
+        },
+        methods: {
+           read: async function() {
+          try {
+              let route = "http://localhost:3000/store/"+ this.slug
+              let resp = await fetch(route);	
+              resp = await resp.json();
+              console.log("resp: "+ JSON.stringify(resp));
+              
+              this.title= resp.title;
+              this.id= resp._id;
+              this.price= resp.price;
+              this.description= resp.description;
+            }
+          catch (e) {alert("Error: " + e);}//{alert("Usuario inexistente")}
+          },
+          create: async function() {
+            try {
+                let route = "http://localhost:3000/store/"
+                fetch(route, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    "title": this.title,
+                    "slug": this.slug,
+                    "description": this.description,
+                    "price": this.price,
+                    "active": true,
+                    "tags": ["video", "possani"]
+                  })
+                });	
+              }
+            catch (e) {alert("Error: " + e);}
+          },
+          del: async function() {
+            try {
+                let route = "http://localhost:3000/store/"+ this.id
+                fetch(route, {method: 'DELETE'});	
+              }
+            catch (e) {alert("Error: " + e);}
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
