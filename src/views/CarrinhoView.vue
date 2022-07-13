@@ -9,6 +9,7 @@
       <div class="col- col-lg-4 col-xl-2" align="center">
         <resumo-carrinho> </resumo-carrinho>
         <CardPagamento></CardPagamento>
+        <!-- <credit></credit> -->
       </div>   
     </div>   
   </div> 
@@ -21,6 +22,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import header_main from '@/components/header-main'
 import footer_main from '@/components/footer-main'
+// import credit from "@/components/card-cartao.vue"
 import resumoCarrinho from "@/components/resumo-carrinho.vue";
 import produtosCarrinho from "@/components/produtos-carrinho.vue";
 import CardPagamento from "@/components/card-pagamento.vue";
@@ -33,7 +35,7 @@ export default {
     footer_main,
     resumoCarrinho,
     produtosCarrinho,
-    CardPagamento,
+    CardPagamento
 },
 }
 </script>
