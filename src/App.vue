@@ -1,6 +1,5 @@
 <template>
   <header_main></header_main>
-
   <router-view/>
   
   <footer_main></footer_main>
@@ -23,7 +22,7 @@ export default {
   components: {
     header_main,
     footer_main,
-  },
+},
 
 }
 </script>

@@ -4,9 +4,7 @@
     <div class="row justify-content-md-center">
         <div class="col">
             <h3>{{aula.nome}}</h3>
-            <button class="btn btn-primary btn mb-3" type="submit" v-if="user.isAdm">
-                 Remover Aula
-            </button>
+            <ModalRemove v-if="user.isAdm"></ModalRemove>
         </div>
     </div>
 
@@ -22,7 +20,8 @@
             <div class="card border-dark p-2 mt-4" id="descript" style="width: 25rem;">
                 <h5 class="card-title">Descrição</h5>
                 <p class="card-text" style="line-height: 230%;">{{aula.description}}</p>
-                <button class="btn btn-primary mb-1 mx-5" v-if="user.isAdm">Alterar Descrição</button>
+                        <ModalDesc v-if="user.isAdm"></ModalDesc>
+
             </div>
         </div>
         <div class="col- col-lg-5 ">
@@ -32,23 +31,17 @@
                         <h3 id="preco">{{aula.price}} </h3> 
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary btn-lg" type="submit" v-if="user.isAdm" style="font-size: medium;">
-                            Alterar Preço
-                        </button>
+                        <ModalPreco v-if="user.isAdm"></ModalPreco>
                         <button class="btn btn-primary btn-lg" type="submit" @click="addToCart" v-else>
                             <img :src="cartIcon" width="35" />
                             Comprar
                         </button>
                     </div>
-
-
                 </div>
                 <div class="row mt-4">
                     <div class="col">     
                         <p>{{aula.detalhes}}</p>
-                        <button class="btn btn-primary btn-lg mb-3" type="submit" v-if="user.isAdm">
-                            Alterar Detalhes
-                        </button>
+                        <ModalDet></ModalDet>
                     </div>
                 </div>
             </div>
@@ -56,46 +49,43 @@
     </div>
 </div>
 
-
 </template>
 
 <script>
 import usuario from "../data/usuario.js"
+import ModalDesc from "@/components/modal-desc.vue"
+import ModalRemove from "../components/modal-remove.vue"
+import ModalPreco from "../components/modal-preco.vue"
+import ModalDet from "../components/modal-det.vue"
 
 
 export default{
-    name: 'video_card',
-
-    data: ()=>{
+    name: "video_card",
+    data: () => {
         return {
-
             user: usuario,
-
-            aula:
-            {
-            nome:'Álgebra Linear',
-            price: 'R$ 120,00',
-            image: require('@/assets/thumbnails/Videoaula.png'),
-            description: 'Aula da disciplina Cálculo I - MCA-001. Curso de Engenharia - Turma 2016 -  Univesp Universidade Virtual do Estado de São Paulo.  Professor responsável pela disciplina: Claudio Possani Professor ministrante: Claudio Possani',
-            detalhes: 'Nesta aula introdutória do curso, o incrível Prof. Cláudio Possani faz um panorama das ideias abordadas pela disciplina e de sua importância na formação de um engenheiro ',
-            cdnSrc: 'https://www.youtube.com/embed/Utj5xUmUEvk'
+            aula: {
+                nome: "Álgebra Linear",
+                price: "R$ 120,00",
+                image: require("@/assets/thumbnails/Videoaula.png"),
+                description: "Aula da disciplina Cálculo I - MCA-001. Curso de Engenharia - Turma 2016 -  Univesp Universidade Virtual do Estado de São Paulo.  Professor responsável pela disciplina: Claudio Possani Professor ministrante: Claudio Possani",
+                detalhes: "Nesta aula introdutória do curso, o incrível Prof. Cláudio Possani faz um panorama das ideias abordadas pela disciplina e de sua importância na formação de um engenheiro ",
+                cdnSrc: "https://www.youtube.com/embed/Utj5xUmUEvk"
             },
-            
-            cartIcon: require('@/assets/icones/cart.png'),
-
+            cartIcon: require("@/assets/icones/cart.png"),
             item: {
-                nome:'Álgebra Linear ',
-                price: 120.00,
-                image: require('@/assets/thumbnails/calc3.png')
+                nome: "Álgebra Linear ",
+                price: 120,
+                image: require("@/assets/thumbnails/calc3.png")
             }
-        }
-    }
-    ,
+        };
+    },
     methods: {
         addToCart() {
-            this.$store.commit('addToCart', this.item)
+            this.$store.commit("addToCart", this.item);
         }
-    }
+    },
+    components: { ModalDesc, ModalRemove, ModalPreco, ModalDet }
 }
 </script>
 
