@@ -10,12 +10,12 @@
       </div>
       <div class="select-info">
         <select v-model="day">
-        <option v-for="n in 12" :key="n">{{n}}</option>
+        <option v-for="n in 12" :key="n">{{n}} </option>
         </select>
         <select v-model="year">
         <option v-for="n in 14" :key="n">{{n+22}}</option> <br>
         </select>
-        <input type="password" placeholder="CVV" maxlength="3">
+        <input type="text" placeholder="CVV" maxlength="3">
       </div>
       <div class="purchase">
         <input type="submit" value="Confirmar R$X.XX">
@@ -41,15 +41,18 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .container {
-  background-color: #e7ecf0;
-  width: 400px;
-  height: 400px;
-  padding: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-color: rgb(108, 108, 108);
+  width: 255px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .top-text {
+  margin-top: 10px;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
@@ -60,9 +63,11 @@ input {
   border-radius: 4px;
 }
 input[type="text"] {
-  margin: 3px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+
 }
-input[type="password"] {
+input[placeholder="CVV"] {
     background-color: white;
     /* border: 0.1px solid #BDBDBD;
     border-radius: 4px; */
@@ -86,7 +91,7 @@ input[type="submit"] {
     border: 0.1px solid #BDBDBD;
     border-radius: 4px;
     opacity: 0.7;
-    padding: 12px 24px;
+    padding: 5px 1px;
     width: 200px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -95,7 +100,8 @@ select {
     border: 0.1px solid #BDBDBD;
     border-radius: 4px;
     opacity: 0.7;
-    padding: 6px 12px;
+    padding: 7px 1px;
+    margin: 1px;
     font-family: 'Montserrat', sans-serif;
 }
 </style>

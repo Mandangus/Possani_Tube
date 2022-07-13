@@ -8,9 +8,8 @@
         <br>
         <input type="radio" name="credit-card" value="boleto" v-model="pay_method"> Boleto
         <br>
-        <!-- <credit_card v-if="pay_method === 'credit'"></credit_card> -->
     </form>
-    <!-- <credit_card v-if="pay_method ==='credit'"></credit_card> -->
+        <credit v-if="pay_method === 'credit'"></credit>
     <br>
         <form>
             <div class="form-group">
@@ -21,7 +20,6 @@
     
         </form>
   </div>
-  <!-- <credit></credit> -->
 </div>
 
 </template>
@@ -30,7 +28,9 @@
 import credit from "@/components/card-cartao.vue"
 export default {
     name: 'card-pagamento',
-    components: credit,
+    components: {
+    credit,
+},
     data() {
         return {
             pay_method: ""
