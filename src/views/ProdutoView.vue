@@ -9,8 +9,11 @@
     </div>
 
     <div class="row">
-        <div class="col iframe-container mx-2">
+        <div  v-if="comprado || user.isAdm" class="col iframe-container mx-2">
             <iframe width="560" height="315" :src="aula.cdnSrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+         <div v-else class="col iframe-container mx-2">
+            <iframe width="560" height="315" :src="aula.prevSrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -26,21 +29,24 @@
         <div class="col- col-lg-5 ">
             <div class="card border-0" style="width: 25rem;"> 
                 <div class="row mt-4">
-                    <div class="col">
+                    <div class="col" v-if="!comprado || user.isAdm">
                         <h3 id="preco">{{aula.price}} </h3> 
                     </div>
                     <div class="col">
                         <ModalPreco v-if="user.isAdm"></ModalPreco>
-                        <button class="btn btn-primary btn-lg" type="submit" @click="addToCart" v-else>
+                        <button class="btn btn-primary btn-lg" type="submit" @click="addToCart" v-else-if="!comprado" >
                             <img :src="cartIcon" width="35" />
                             Comprar
                         </button>
                     </div>
                 </div>
+               
+            
+
                 <div class="row mt-4">
                     <div class="col">     
                         <p>{{aula.detalhes}}</p>
-                        <ModalDet></ModalDet>
+                        <ModalDet v-if="user.isAdm"></ModalDet>
                     </div>
                 </div>
             </div>
@@ -63,13 +69,15 @@ export default{
     data: () => {
         return {
             user: usuario,
+            comprado:false && usuario.login,
             aula: {
                 nome: "Álgebra Linear",
                 price: "R$ 120,00",
                 image: require("@/assets/thumbnails/Videoaula.png"),
                 description: "Aula da disciplina Cálculo I - MCA-001. Curso de Engenharia - Turma 2016 -  Univesp Universidade Virtual do Estado de São Paulo.  Professor responsável pela disciplina: Claudio Possani Professor ministrante: Claudio Possani",
                 detalhes: "Nesta aula introdutória do curso, o incrível Prof. Cláudio Possani faz um panorama das ideias abordadas pela disciplina e de sua importância na formação de um engenheiro",
-                cdnSrc: "https://www.youtube.com/embed/Utj5xUmUEvk"
+                cdnSrc: "https://www.youtube.com/embed/Utj5xUmUEvk",
+                prevSrc: "https://www.youtube.com/embed/u6phoAngwuI"
             },
             cartIcon: require("@/assets/icones/cart.png"),
             item: {
