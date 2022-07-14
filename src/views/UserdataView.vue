@@ -7,7 +7,6 @@
             <ul class="list-group" id="datalist">
                 <li class="list-group-item border-0">Nome:   <b>{{user.nome}}</b> </li>
                 <li class="list-group-item border-0">Email:  <b>{{user.email}}</b> </li>
-                <li class="list-group-item border-0">Celular:   <b>{{user.celular}}</b> </li>
                 <li class="list-group-item border-0">Endereço:   <b>{{user.endereco}}</b> </li>
                 <li class="list-group-item border-0" v-if="user.isAdm">Administrador </li>
         

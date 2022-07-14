@@ -20,8 +20,7 @@
             <div class="card border-dark p-2 mt-4" id="descript" style="width: 25rem;">
                 <h5 class="card-title">Descrição</h5>
                 <p class="card-text" style="line-height: 230%;">{{aula.description}}</p>
-                        <ModalDesc v-if="user.isAdm"></ModalDesc>
-
+                    <ModalDesc v-if="user.isAdm"></ModalDesc>
             </div>
         </div>
         <div class="col- col-lg-5 ">
@@ -69,7 +68,7 @@ export default{
                 price: "R$ 120,00",
                 image: require("@/assets/thumbnails/Videoaula.png"),
                 description: "Aula da disciplina Cálculo I - MCA-001. Curso de Engenharia - Turma 2016 -  Univesp Universidade Virtual do Estado de São Paulo.  Professor responsável pela disciplina: Claudio Possani Professor ministrante: Claudio Possani",
-                detalhes: "Nesta aula introdutória do curso, o incrível Prof. Cláudio Possani faz um panorama das ideias abordadas pela disciplina e de sua importância na formação de um engenheiro ",
+                detalhes: "Nesta aula introdutória do curso, o incrível Prof. Cláudio Possani faz um panorama das ideias abordadas pela disciplina e de sua importância na formação de um engenheiro",
                 cdnSrc: "https://www.youtube.com/embed/Utj5xUmUEvk"
             },
             cartIcon: require("@/assets/icones/cart.png"),
