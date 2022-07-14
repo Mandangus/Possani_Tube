@@ -41,6 +41,9 @@
                 </li>
               </ul>
             </li>
+          <li v-if="user.isAdm" class="nav-item mx-4">
+            <router-link to="/userCrud" class="nav-link active py-0" aria-current="page">Gerenciar Usuários</router-link>
+          </li>
           </template>
         <li v-else class="mb-3">
             <router-link to="/login" style="text-decoration: none; color: inherit; font-weight: 500;">
