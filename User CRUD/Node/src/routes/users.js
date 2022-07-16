@@ -6,18 +6,20 @@ const User = mongoose.model('User')
 const express = require('express')
 const router = express.Router()
 
-// router.get('/:slug', async (req, res) => {
-//     try {
-//         const data = await Product.findOne({active: true, slug: req.params.slug}, 'title price slug description')
-//         res.status(200).send(data)
-//     } catch (e) {res.status(400).send(e)}
-// })
+router.get('/', async (req, res) => {
+    let data;
+    try {
+        data = await User.find({active: true})
+    } catch (e) {return res.status(400).send(e)}
+    return res.status(200).send(data)
+})
 
 router.get('/:email', async (req, res) => {
+    let data;
     try {
-        const data = await User.find({active: true, email: req.params.email})
-        res.status(200).send(data)
-    } catch (e) {res.status(400).send(e)}
+        data = await User.find({email: req.params.email})
+    } catch (e) {return res.status(400).send(e)}
+    return res.status(200).send(data)
 })
 
 router.post('/', async (req, res) => {
@@ -26,52 +28,57 @@ router.post('/', async (req, res) => {
         await user.save()
     }
     catch (e) {
-        res.status(400).send({
+        return res.status(400).send({
             message: 'Falha no cadastro',
             data: e
         })
     }
-    res.status(201).send({
+    return res.status(201).send({
         message: "Usuário cadastrado"
     })
 })
 
-router.put('/:login', async (req, res) => {
+router.put('/promote/:email', async (req, res) => {
     try{
-        await User
-        .findByIdAndUpdate(req.params.login, {
-            $set: {
-                name: req.body.name,
-                email: req.body.email,
-                password: req.body.password,
-                address: req.body.address,
-                number: req.body.number
-            }
-        });
-        res.status(201).send({
-            message: 'Usuario atualizado com sucesso!'
-        });
+        await User.find({email: req.params.email}).updateOne({isAdm: true})
     } catch (e) {
-        res.status(400).send({
-            message: 'Falha no cadastro',
+        return res.status(400).send({
+            message: 'Falha na atualização',
             data: e
         });
     }
+    return res.status(201).send({
+        message: 'Usuario atualizado com sucesso!'
+    }); 
 })
 
-router.delete('/:login', async (req, res) => {
+router.put('/demote/:email', async (req, res) => {
+    try{
+        await User.find({email: req.params.email}).updateOne({isAdm: false})
+    } catch (e) {
+        return res.status(400).send({
+            message: 'Falha na atualização',
+            data: e
+        });
+    }
+    return res.status(201).send({
+        message: 'Usuario atualizado com sucesso!'
+    }); 
+})
+
+router.delete('/:email', async (req, res) => {
     try{
         await User
-        .findByIdAndRemove(req.params.login);
-        res.status(200).send({
-            message: 'Usuário deletado com sucesso!'
-        });
+        .findOneAndRemove({email: req.params.email});
     } catch (e) {
-        res.status(400).send({
+        return res.status(400).send({
             message: 'Falha no delete',
             data: e
         });
     }
+    return res.status(200).send({
+        message: 'Usuário deletado com sucesso!'
+    });
 })
 
 module.exports = router

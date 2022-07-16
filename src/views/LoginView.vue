@@ -86,6 +86,7 @@ export default {
                     "email": this.signup_email,
                     "password": this.signup_pwd,
                     "address": this.address,
+                    "isAdm": false,
                     "active": true
                   })
                 });	

@@ -15,10 +15,10 @@
         <textarea class="form-control" rows="3" placeholder="Insira aqui detalhes do produto" v-model="detalhes"></textarea>
         <br>
         <label>Link da CDN do vídeo</label>
-        <textarea class="form-control" placeholder="Insira aqui detalhes do produto" v-model="video"></textarea>
+        <textarea class="form-control" placeholder="Insira aqui o link da CDN do vídeo" v-model="video"></textarea>
         <br>
         <label>Link da CDN da prévia</label>
-        <textarea class="form-control" placeholder="Insira aqui detalhes do produto" v-model="previa"></textarea>
+        <textarea class="form-control" placeholder="Insira aqui o link da CDN da prévia" v-model="previa"></textarea>
         <br>
     </div>
     <button type="submit" class="btn btn-primary">Adicionar produto</button>

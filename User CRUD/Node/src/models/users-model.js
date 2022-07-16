@@ -18,10 +18,10 @@ const schema = new Schema({
         type: String,
         required: true
     },
-    // number: {
-    //     type: String,
-    //     required: true
-    // },
+    isAdm: {
+        type: Boolean,
+        required: true
+    },
     active: {
         type: Boolean,
         required: true,

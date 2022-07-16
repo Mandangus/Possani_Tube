@@ -4,7 +4,7 @@ const usuario =
     email: 'superpossani@gmail.com',
     password: 'senha',
     endereco: 'Rua dos bobos, 0',
-    isAdm: false,
+    isAdm: true,
     login: true,
 }
 
