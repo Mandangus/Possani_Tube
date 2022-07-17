@@ -34,10 +34,11 @@
 <script> 
 
 
+
 export default{
     name: 'resumo_carrinho',
     created: async function() {
-        let route = "http://localhost:3000/store/"
+        let route = "http://localhost:"+process.env.PORT+"/store/"
         let resp = await fetch(route);	
         resp = await resp.json();
         this.users = resp
@@ -50,21 +51,21 @@ export default{
     methods: {
       deleteUser: async function(email) {
         try {
-            let route = "http://localhost:3000/store/"+email 
+            let route = "http://localhost:"+process.env.PORT+"/email" 
             fetch(route, {method: 'DELETE'});	
         }
         catch (e) {alert("Error: " + e);}
       },
       promoteUser: async function(email) {
         try {
-            let route = "http://localhost:3000/store/promote/"+email
+            let route = "http://localhost:"+process.env.PORT+"/store/promote/"+email
             fetch(route, {method: 'PUT'});	
         }
         catch (e) {alert("Error: " + e);}
       },
       demoteUser: async function(email) {
         try {
-            let route = "http://localhost:3000/store/demote/"+email
+            let route = "http://localhost:"+process.env.PORT+"/store/demote/"+email
             fetch(route, {method: 'PUT'});	
         }
         catch (e) {alert("Error: " + e);}

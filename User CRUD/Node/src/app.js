@@ -3,7 +3,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/myapp')
+const dontenv = require('dotenv').config()
+
+mongoose.connect(process.env.DB_URL)
+.then(() =>{
+    console.log("Conectado com MongoDB")
+}).catch((e) => console.log(e))
+
 require('./models/users-model')
 
 const app = express()
