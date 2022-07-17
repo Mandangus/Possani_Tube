@@ -37,7 +37,7 @@ const schema = new Schema({
 
 },
 {
-    collection: "loja"
+    collection: "usuarios"
 }
 )
 
