@@ -5,9 +5,9 @@
     <div class="row ">
         <div class="col- col-sm- col-md-6 col-lg-6 mt-4">
             <ul class="list-group" id="datalist">
-                <li class="list-group-item border-0">Nome:   <b>{{user.nome}}</b> </li>
+                <li class="list-group-item border-0">Nome:   <b>{{user.name}}</b> </li>
                 <li class="list-group-item border-0">Email:  <b>{{user.email}}</b> </li>
-                <li class="list-group-item border-0">Endereço:   <b>{{user.endereco}}</b> </li>
+                <li class="list-group-item border-0">Endereço:   <b>{{user.address}}</b> </li>
                 <li class="list-group-item border-0" v-if="user.isAdm">Administrador </li>
         
             </ul>
@@ -31,20 +31,18 @@
 </template>
 
 <script>
-import usuario from "../data/usuario.js"
 
 
 export default{
     name: 'user_info',
-    
-
+    computed: {
+        user() {
+            return this.$store.getters.userLogged
+        }
+    },
   data: ()=>{
     return {
-      user: usuario,
-
-      
       profileImage: require('@/assets/icones/Profile_avatar_placeholder_large.png'),
-
     }
   }
 }

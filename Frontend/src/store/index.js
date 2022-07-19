@@ -1,12 +1,13 @@
 import {createStore} from 'vuex'
 
-function updateLocalStorage(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart))
+function updateLocalStorage(str, item) {
+    localStorage.setItem(str, JSON.stringify(item))
 }
 
 export default createStore({
     state: {
-        cart: []
+        cart: [],
+        user: {}
     },
     getters: {
         cartItems: state => {
@@ -18,6 +19,9 @@ export default createStore({
                 soma += state.cart[i].price
             }
             return soma;
+        },
+        userLogged: state => {
+            return state.user
         }
     },
     mutations: {
@@ -30,7 +34,7 @@ export default createStore({
             else {
                 state.cart.push(product)
             }
-            updateLocalStorage(state.cart)
+            updateLocalStorage('cart', state.cart)
         },
         removeFromCart(state, product) {
             let item = state.cart.find(i => i.name === product.name) 
@@ -39,7 +43,26 @@ export default createStore({
                 state.cart = state.cart.filter(i => i.name !== product.name)
             }
 
-            updateLocalStorage(state.cart)
+            updateLocalStorage('cart', state.cart)
+        },
+        signInUser: async function(state, info) {
+            try {
+                    let route = "http://localhost:3000/store/"+ info.email
+                    console.log(route)
+                    let resp = await fetch(route);	
+                    resp = await resp.json();
+                    if (resp[0].password === info.password) {
+                        state.user = resp[0]
+                        updateLocalStorage('user', state.user)
+                    } else {
+                        alert('SENHA INCORRETA! TENTE NOVAMENTE')
+                    }
+                }
+                catch (e) {console.log("Usuario inexistente")}
+        },
+        signOutUser(state) {
+            state.user.active = false
+            updateLocalStorage('user', state.user)
         }
     }
 })

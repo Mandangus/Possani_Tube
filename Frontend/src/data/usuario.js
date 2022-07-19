@@ -4,8 +4,9 @@ const usuario =
     email: 'superpossani@gmail.com',
     password: 'senha',
     endereco: 'Rua dos bobos, 0',
-    isAdm: true,
-    login: true,
+    isAdm: false,
+    login: false,
+    compras: []
 }
-
+// const usuario = {};
 export default usuario

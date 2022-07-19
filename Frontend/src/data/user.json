@@ -1,0 +1,9 @@
+{
+    "name": "Cláudio Possani",
+    "email": "superpossani@gmail.com",
+    "password": "senha",
+    "endereco": "Rua dos bobos, 0",
+    "isAdm": true,
+    "login": false,
+    "compras": []
+}

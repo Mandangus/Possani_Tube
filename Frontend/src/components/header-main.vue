@@ -26,7 +26,7 @@
               <li><router-link to="/" class="dropdown-item" >Novas Matérias</router-link></li>
             </ul>
           </li>
-          <template v-if="user.login">
+          <template v-if="user.active">
             <li class="py-0">
               <router-link to="/perfil"><img src="@/assets/icones/Profile_avatar_placeholder_large.png" class="imagem mt-2"></router-link>          
             </li>              
@@ -37,7 +37,7 @@
                     <b>Minha conta</b>
                   </router-link> 
                 <li>
-                  <router-link to="/"><button type="button" class="customize" @click="exitUser"><b>Sair</b></button></router-link>
+                  <router-link to="/"><button type="button" class="customize" @click="signOutUser"><b>Sair</b></button></router-link>
                   <!-- <b>Sair</b> -->
                 </li>  
                 </li>
@@ -72,23 +72,20 @@
 </template>
 
 <script>
-import usuario from "../data/usuario.js"
+// import usuario from "../data/usuario.js"
+// import usuario from "../data/user"
 
 export default {
   
   name: 'header',
-  // computed: function() {
-  //     this.user.login = true;
-  // },
-  data: () => {
-      return {
-        user: usuario,
-        searchkey: ""
+  computed: {
+      user() {
+        return this.$store.getters.userLogged
       }
   },
   methods: {
-    exitUser() {
-      this.user.login = false;
+    signOutUser() {
+      this.$store.commit('signOutUser')
     }
   }
 }
