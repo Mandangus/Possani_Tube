@@ -9,16 +9,19 @@ mongoose.connect(process.env.DB_URL)
 .then(() =>{
     console.log("Conectado com MongoDB")
 }).catch((e) => console.log(e))
-// mongoose.connect("mongodb://localhost:27017/myapp")
 require('./models/users-model')
+require('./models/product-model')
+
 
 const app = express()
-const product = require('./routes/users')
+const user = require('./routes/users')
+const product = require('./routes/products')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.use('/store', product)
+app.use('/store', user)
+app.use('/product', product)
 
 module.exports = app;
 
