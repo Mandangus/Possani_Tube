@@ -107,6 +107,11 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.homepage {
+  font-family: Montserrat;
+}
 #card-aula{
   padding: 5px;
 }

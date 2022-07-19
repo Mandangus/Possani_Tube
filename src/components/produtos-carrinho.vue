@@ -20,9 +20,9 @@
     <div class="col">
       <div class="row mt-3">
         <div class="col offset-2">
-          <button id="removeItem" type="button" class="btn btn-light" @click="removeFromCart(aula)">Remover</button> <br>
           <!-- <button id="removeItem" type="button" class="btn btn-light" @click="removeFromCart(aula)">Remover</button> <br> -->
-                    <img class="img-fluid" id="trash-icon" :src="trashIcon"/>
+          <button id="removeItem" type="button" class="btn btn-light" @click="removeFromCart(aula)"><img class="img-fluid" id="trash-icon" :src="trashIcon"/></button> <br>
+          <!-- <img class="img-fluid" id="trash-icon" :src="trashIcon"/> -->
 
         </div>
       </div>

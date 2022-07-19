@@ -2,8 +2,8 @@
 
 <div class="card border-light shadow m-2" >
   <div class="card-body" id="resumo-carrinho">
-    <h5 class="card-title">Resumo:</h5>
-    <p class="card-text pt-5">Valor das aulas:           <b>R${{cartPrice}}</b> </p>
+    <!-- <h5 class="card-title">Resumo:</h5> -->
+    <!-- <p class="card-text pt-5">Valor das aulas:           <b>R${{cartPrice}}</b> </p> -->
     <!-- <p class="card-text pt-5">Valor das aulas:           <b>{{valorAulas}}</b> </p> -->
     <!-- <p class="card-text ">Desconto aplicado:         <b>{{desconto}}</b> </p>
     <h5 class="card-text py-3">Total:                    <b>{{totalCarrinho}}</b> </h5> -->

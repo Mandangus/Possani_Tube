@@ -1,6 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
+      <router-link to="/"><img src="../assets/icones/logo.png" width="80"></router-link>
       <router-link to="/" class="navbar-brand" >Possani's Store</router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,7 +37,8 @@
                     <b>Minha conta</b>
                   </router-link> 
                 <li>
-                  <b>Sair</b>
+                  <router-link to="/"><button type="button" class="customize" @click="exitUser"><b>Sair</b></button></router-link>
+                  <!-- <b>Sair</b> -->
                 </li>  
                 </li>
               </ul>
@@ -61,7 +63,7 @@
           
         </ul>
         <form class="d-flex">
-          <input class="form-control me-3" type="search" placeholder="Pesquisar" aria-label="Search">
+          <input class="form-control me-3" type="search" placeholder="Pesquisar" aria-label="Search" v-model="searchkey">
           <button class="btn btn-outline-success" type="submit">Ok</button>
         </form>
       </div>
@@ -75,16 +77,36 @@ import usuario from "../data/usuario.js"
 export default {
   
   name: 'header',
-  
+  // computed: function() {
+  //     this.user.login = true;
+  // },
   data: () => {
       return {
         user: usuario,
+        searchkey: ""
       }
+  },
+  methods: {
+    exitUser() {
+      this.user.login = false;
+    }
   }
 }
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+nav {
+  font-family: Montserrat;
+}
+.customize {
+  outline: none;
+  padding: 5px; 
+  border: 0px; 
+  box-sizing: none; 
+  background-color: transparent;
+}
 .nav-item{
   padding-top: 30px;
 }
