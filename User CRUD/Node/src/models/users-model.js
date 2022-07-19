@@ -8,7 +8,8 @@ const schema = new Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,
@@ -26,7 +27,18 @@ const schema = new Schema({
         type: Boolean,
         required: true,
         default: true
-    }
-})
+    },
+    compras:
+    {
+        type: Array,
+        required: true,
+        default: []
+    },
+
+},
+{
+    collection: "usuarios"
+}
+)
 
 module.exports = mongoose.model('User', schema)
