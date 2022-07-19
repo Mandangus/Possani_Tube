@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 
 router.put('/update/:nome', async (req, res) => {
     try{
-        await Product.find({nome: req.params.email})
+        await Product.find({nome: req.params.nome}).updateOne({nome: req.params.novoNome})
     } catch (e) {
         return res.status(400).send({
             message: 'Falha na atualização',
@@ -48,7 +48,79 @@ router.put('/update/:nome', async (req, res) => {
         });
     }
     return res.status(201).send({
-        message: 'Usuario atualizado com sucesso!'
+        message: 'Titulo do video atualizado com sucesso!'
+    }); 
+})
+
+
+router.put('/update/:preco', async (req, res) => {
+    try{
+        await Product.find({nome: req.params.nome}).updateOne({preco: req.params.novoPreco})
+    } catch (e) {
+        return res.status(400).send({
+            message: 'Falha na atualização',
+            data: e
+        });
+    }
+    return res.status(201).send({
+        message: 'Preço do video atualizado com sucesso!'
+    }); 
+})
+
+
+router.put('/update/:detalhes', async (req, res) => {
+    try{
+        await Product.find({nome: req.params.nome}).updateOne({detalhes: req.params.novoDetalhes})
+    } catch (e) {
+        return res.status(400).send({
+            message: 'Falha na atualização',
+            data: e
+        });
+    }
+    return res.status(201).send({
+        message: 'Detalhes do video atualizados com sucesso!'
+    }); 
+})
+
+router.put('/update/:descricao', async (req, res) => {
+    try{
+        await Product.find({nome: req.params.nome}).updateOne({descricao: req.params.novoDescricao})
+    } catch (e) {
+        return res.status(400).send({
+            message: 'Falha na atualização',
+            data: e
+        });
+    }
+    return res.status(201).send({
+        message: 'Descricao do video atualizada com sucesso!'
+    }); 
+})
+
+router.put('/update/:descricao', async (req, res) => {
+    try{
+        await Product.find({nome: req.params.nome}).updateOne({descricao: req.params.novoDescricao})
+    } catch (e) {
+        return res.status(400).send({
+            message: 'Falha na atualização',
+            data: e
+        });
+    }
+    return res.status(201).send({
+        message: 'Descricao do video atualizada com sucesso!'
+    }); 
+})
+
+router.put('/update/:vendas', async (req, res) => {
+    try{
+        await Product.find({nome: req.params.nome}).updateOne({ $inc: {vendas:1}})
+    } catch (e) {
+        return res.status(400).send({
+            message: 'Falha na atualização',
+            data: e
+        });
+    }
+    return res.status(201).send({
+        message: 'Contagem de vendas atualizada com sucesso!'
     }); 
 })
 
