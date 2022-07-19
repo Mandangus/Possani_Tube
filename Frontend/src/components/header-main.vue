@@ -26,23 +26,8 @@
               <li><router-link to="/" class="dropdown-item" >Novas Matérias</router-link></li>
             </ul>
           </li>
-          <template v-if="user.login">          
-          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
-            <router-link to="/userCrud" class="nav-link active py-0" aria-current="page">Gerenciar<br> Usuários</router-link>
-          </li>
-          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
-            <router-link to="/productCrud" class="nav-link active py-0" aria-current="page">Adicionar <br> Vídeo</router-link>
-          </li>
-          </template>
-        <li v-else class="mb-3">
-            <router-link to="/login" style="text-decoration: none; color: inherit;">
-            <ul id="login">
-             <li >Faça <b>login</b> ou</li>
-             <li>Crie seu <b>cadastro</b></li>
-            </ul>
-            </router-link>
-          </li>
-                      <li>
+          <template v-if="user.login">  
+            <li>
               <ul id="profile">
                 <li>
                   Olá, {{user.name}}
@@ -58,6 +43,23 @@
 
               </ul>
             </li> 
+          
+          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
+            <router-link to="/userCrud" class="nav-link active py-0" aria-current="page">Gerenciar<br> Usuários</router-link>
+          </li>
+          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
+            <router-link to="/productCrud" class="nav-link active py-0" aria-current="page">Adicionar <br> Vídeo</router-link>
+          </li>
+          </template>
+        <li v-else class="mb-3">
+            <router-link to="/login" style="text-decoration: none; color: inherit;">
+            <ul id="login">
+             <li >Faça <b>login</b> ou</li>
+             <li>Crie seu <b>cadastro</b></li>
+            </ul>
+            </router-link>
+          </li>
+
           
             
           
