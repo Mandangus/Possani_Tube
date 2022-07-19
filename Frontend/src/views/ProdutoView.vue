@@ -7,9 +7,17 @@
             <ModalRemove v-if="user.isAdm"></ModalRemove>
         </div>
     </div>
+    <div class="row justify-content-center my-2">
+        <div class="col-2" >
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @click="mostraVideo = !mostraVideo">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Visualizar Video</label>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
-        <div  v-if="comprado || user.isAdm" class="col iframe-container mx-2">
+        <div  v-if="comprado || mostraVideo" class="col iframe-container mx-2">
             <iframe width="560" height="315" :src="aula.cdnSrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
          <div v-else class="col iframe-container mx-2">
@@ -68,6 +76,7 @@ export default{
     name: "video_card",
     data: () => {
         return {
+            mostraVideo: false,
             user: usuario,
             comprado:false && usuario.login,
             aula: {
