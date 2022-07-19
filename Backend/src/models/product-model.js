@@ -8,7 +8,7 @@ const schema = new Schema({
         unique: true
     },
     preco: {
-        type: Double,
+        type: Number,
         required: true,
     },
     materia: {
@@ -34,7 +34,7 @@ const schema = new Schema({
     },
     vendas:
     {
-        type: String,
+        type: Number,
         required: true,
     },
     thumbnail:
@@ -45,9 +45,8 @@ const schema = new Schema({
     active:
     {
         type: Boolean,
-        required: true,
-    },
-
+        required: true
+    }
 
 },
 {
