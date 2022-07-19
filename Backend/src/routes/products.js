@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
     })
 })
 
-router.put('/update/:nome', async (req, res) => {
+router.put('/updateNome/:nome', async (req, res) => {
     try{
         await Product.find({nome: req.params.nome}).updateOne({nome: req.params.novoNome})
     } catch (e) {
@@ -53,7 +53,7 @@ router.put('/update/:nome', async (req, res) => {
 })
 
 
-router.put('/update/:preco', async (req, res) => {
+router.put('/updatePreco/:nome', async (req, res) => {
     try{
         await Product.find({nome: req.params.nome}).updateOne({preco: req.params.novoPreco})
     } catch (e) {
@@ -68,7 +68,7 @@ router.put('/update/:preco', async (req, res) => {
 })
 
 
-router.put('/update/:detalhes', async (req, res) => {
+router.put('/updateDetalhes/:nome', async (req, res) => {
     try{
         await Product.find({nome: req.params.nome}).updateOne({detalhes: req.params.novoDetalhes})
     } catch (e) {
@@ -82,7 +82,7 @@ router.put('/update/:detalhes', async (req, res) => {
     }); 
 })
 
-router.put('/update/:descricao', async (req, res) => {
+router.put('/updateDescricao/:nome', async (req, res) => {
     try{
         await Product.find({nome: req.params.nome}).updateOne({descricao: req.params.novoDescricao})
     } catch (e) {
@@ -96,21 +96,8 @@ router.put('/update/:descricao', async (req, res) => {
     }); 
 })
 
-router.put('/update/:descricao', async (req, res) => {
-    try{
-        await Product.find({nome: req.params.nome}).updateOne({descricao: req.params.novoDescricao})
-    } catch (e) {
-        return res.status(400).send({
-            message: 'Falha na atualização',
-            data: e
-        });
-    }
-    return res.status(201).send({
-        message: 'Descricao do video atualizada com sucesso!'
-    }); 
-})
 
-router.put('/update/:vendas', async (req, res) => {
+router.put('/updateVendas/:nome', async (req, res) => {
     try{
         await Product.find({nome: req.params.nome}).updateOne({ $inc: {vendas:1}})
     } catch (e) {
