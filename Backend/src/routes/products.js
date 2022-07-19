@@ -111,6 +111,20 @@ router.put('/updateVendas/:nome', async (req, res) => {
     }); 
 })
 
+router.put('/delete/:nome', async (req, res) => {
+    try{
+        await Product.find({nome: req.params.nome}).updateOne({active: false})
+    } catch (e) {
+        return res.status(400).send({
+            message: 'Falha no delete',
+            data: e
+        });
+    }
+    return res.status(200).send({
+        message: 'Produto deletado com sucesso!'
+    });
+})
+
 router.delete('/:nome', async (req, res) => {
     try{
         await Product
