@@ -26,10 +26,7 @@
               <li><router-link to="/" class="dropdown-item" >Novas Matérias</router-link></li>
             </ul>
           </li>
-          <template v-if="user.active">
-            <li class="py-0">
-              <router-link to="/perfil"><img src="@/assets/icones/Profile_avatar_placeholder_large.png" class="imagem mt-2"></router-link>          
-            </li>              
+          <template v-if="user.active">        
             <li>
               <ul id="profile">
                 <li>

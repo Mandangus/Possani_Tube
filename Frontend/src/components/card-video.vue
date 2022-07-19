@@ -53,22 +53,8 @@
 <script>
 export default{
     name: 'video_card',
-
-    data: ()=>{
-        return {
-
-        aula:
-        {
-          nome:'Álgebra Linear',
-          price: 'R$ 120,00',
-          image: require('@/assets/Videoaula.png'),
-          description: 'Aula da disciplina Cálculo I - MCA-001. Curso de Engenharia - Turma 2016 -  Univesp Universidade Virtual do Estado de São Paulo.  Professor responsável pela disciplina: Claudio Possani Professor ministrante: Claudio Possani',
-          detalhes: 'Nesta aula introdutória do curso, o incrível Prof. Cláudio Possani faz um panorama das ideias abordadas pela disciplina e de sua importância na formação de um engenheiro ',
-        },
-        
-        cartIcon: require('@/assets/cart.png'),
-
-        }
+    props: {
+        aula
     }
 }
 </script>

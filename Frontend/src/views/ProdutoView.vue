@@ -74,7 +74,7 @@ import ModalDet from "../components/modal-det.vue"
 
 export default{
     name: "video_card",
-    data: () => {
+     data: () => {
         return {
             mostraVideo: false,
             user: usuario,

@@ -7,7 +7,8 @@ function updateLocalStorage(str, item) {
 export default createStore({
     state: {
         cart: [],
-        user: {}
+        user: {},
+        products: []
     },
     getters: {
         cartItems: state => {
@@ -22,6 +23,9 @@ export default createStore({
         },
         userLogged: state => {
             return state.user
+        },
+        storeProducts: state => {
+            return state.products
         }
     },
     mutations: {
@@ -63,6 +67,17 @@ export default createStore({
         signOutUser(state) {
             state.user.active = false
             updateLocalStorage('user', state.user)
+        },
+        getProducts: async function(state) {
+            try {
+                let route = "http://localhost:3000/product/"
+                let resp = await fetch(route);	
+                resp = await resp.json();
+                console.log(resp)
+                state.products = resp
+                updateLocalStorage('products', state.products)
+            }
+            catch (e) {console.log("Erro"+ e)}   
         }
     }
 })
