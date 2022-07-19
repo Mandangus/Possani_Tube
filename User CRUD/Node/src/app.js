@@ -11,6 +11,7 @@ mongoose.connect(process.env.DB_URL)
 }).catch((e) => console.log(e))
 
 require('./models/users-model')
+// const connection = mongoose.connection
 
 const app = express()
 const product = require('./routes/users')

@@ -14,12 +14,16 @@
     <div class="col">
         <div class="row">
             <div class="col">
+                <!-- <router-link to="/userCrud"> -->
                 <button v-if="user.isAdm" type="button" class="btn btn-primary" @click="demoteUser(user.email)">Remover ADM</button>
                 <button v-else type="button" class="btn btn-success" @click="promoteUser(user.email)">Tornar ADM</button>
+                <!-- </router-link> -->
             </div>
             <div class="row my-2">
                 <div class="col">
+                    <router-link to="/userCrud">
                     <button type="button" class="btn btn-danger" @click="deleteUser(user.email)">Excluir Usuário</button>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -38,7 +42,7 @@
 export default{
     name: 'resumo_carrinho',
     created: async function() {
-        let route = "http://localhost:"+process.env.PORT+"/store/"
+        let route = "http://localhost:"+"3000"+"/store/"
         let resp = await fetch(route);	
         resp = await resp.json();
         this.users = resp
@@ -51,22 +55,41 @@ export default{
     methods: {
       deleteUser: async function(email) {
         try {
-            let route = "http://localhost:"+process.env.PORT+"/email" 
-            fetch(route, {method: 'DELETE'});	
+            let route = "http://localhost:"+"3000/store/"+email 
+            fetch(route, {method: 'DELETE'});
+            for (let i = 0; i < this.users.length; i++) {
+                if (this.users[i].email === email) {
+                    this.users.splice(i, 1)
+                    break;
+                }
+            }	
         }
         catch (e) {alert("Error: " + e);}
       },
       promoteUser: async function(email) {
         try {
-            let route = "http://localhost:"+process.env.PORT+"/store/promote/"+email
+            let route = "http://localhost:"+"3000"+"/store/promote/"+email
             fetch(route, {method: 'PUT'});	
+            for (let i = 0; i < this.users.length; i++) {
+                if (this.users[i].email === email) {
+                    this.users[i].isAdm = true
+                    break;
+                }
+            }
         }
         catch (e) {alert("Error: " + e);}
       },
       demoteUser: async function(email) {
         try {
-            let route = "http://localhost:"+process.env.PORT+"/store/demote/"+email
+            let route = "http://localhost:"+"3000"+"/store/demote/"+email
+            fetch(route, {method: 'PUT'});
             fetch(route, {method: 'PUT'});	
+            for (let i = 0; i < this.users.length; i++) {
+                if (this.users[i].email === email) {
+                    this.users[i].isAdm = false
+                    break;
+                }
+            }	
         }
         catch (e) {alert("Error: " + e);}
       }

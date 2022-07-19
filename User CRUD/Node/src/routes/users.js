@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
+// var db = require('../database/mongo')
 
 const express = require('express')
 const router = express.Router()
@@ -10,6 +11,7 @@ router.get('/', async (req, res) => {
     let data;
     try {
         data = await User.find({active: true})
+        // data = db.users.find({active: true})
     } catch (e) {return res.status(400).send(e)}
     return res.status(200).send(data)
 })
