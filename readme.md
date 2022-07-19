@@ -84,8 +84,9 @@ Serão feitos diversos testes para detectar bugs que afetem a lógica do site, e
 
 
 ## Tutorial da Instalação da Aplicação  
-(melhorar) 
-### Project setup
+
+### Frontend setup
+Na pasta Frontend, para instalar as dependências necessárias:
 ```
 npm install
 ```
@@ -97,14 +98,16 @@ npm run serve
 
 #### Compiles and minifies for production
 ```
-np#m run build
+npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
+### Backend Setup
+Na pasta Backend
+```
+npm start
+```
 ## Problemas encontrados 
-(encher linguiça?)
+
 - Durante o desenvolvimento desse projeto, esbarramos em dificuldades para corrigir pequenos detalhes de responsividade. Após diversos testes e consultas à documentação das bibliotecas utilizadas, corrigimos esses erros.
 - Tivemos problemas para realizar a conexão com a base de dados hospedada pelo MongoDB Atlas. Eventualmente, conseguimos efetuar a conexão satisfatóriamente.
 ## Comentários adicionais  
