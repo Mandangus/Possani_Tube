@@ -7,7 +7,7 @@
             <ModalRemove v-if="user.isAdm"></ModalRemove>
         </div>
     </div>
-    <div class="row justify-content-center my-2">
+    <div  v-if="user.isAdm" class="row justify-content-center my-2">
         <div class="col-2" >
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @click="mostraVideo = !mostraVideo">
