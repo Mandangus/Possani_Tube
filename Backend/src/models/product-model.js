@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 const schema = new Schema({
     nome: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     preco: {
         type: Double,
@@ -19,7 +20,7 @@ const schema = new Schema({
         required: false,
     },
     detalhes: {
-        type: Boolean,
+        type: String,
         required: false
     },
     video: {
