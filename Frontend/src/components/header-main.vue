@@ -41,23 +41,34 @@
                   <!-- <b>Sair</b> -->
                 </li>  
                 </li>
+                <li>
+                  <router-link to="/perfil" style="text-decoration: none; color: inherit;"> 
+                    <b>Minha conta</b> 
+                  </router-link> 
+                  <router-link to="/"><button type="button" class="customize" @click="exitUser">
+                    <b>| Sair</b>
+                  </button></router-link>
+                </li>  
+
               </ul>
-            </li>
-          <li v-if="user.isAdm" class="nav-item mx-4">
-            <router-link to="/userCrud" class="nav-link active py-0" aria-current="page">Gerenciar Usuários</router-link>
+            </li> 
+          
+          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
+            <router-link to="/userCrud" class="nav-link active py-0" aria-current="page">Gerenciar<br> Usuários</router-link>
           </li>
-          <li v-if="user.isAdm" class="nav-item">
-            <router-link to="/productCrud" class="nav-link active py-0" aria-current="page">Adicionar Vídeo</router-link>
+          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
+            <router-link to="/productCrud" class="nav-link active py-0" aria-current="page">Adicionar <br> Vídeo</router-link>
           </li>
           </template>
         <li v-else class="mb-3">
-            <router-link to="/login" style="text-decoration: none; color: inherit; font-weight: 500;">
+            <router-link to="/login" style="text-decoration: none; color: inherit;">
             <ul id="login">
              <li >Faça <b>login</b> ou</li>
              <li>Crie seu <b>cadastro</b></li>
             </ul>
             </router-link>
-          </li> 
+          </li>
+
           
             
           
@@ -87,16 +98,13 @@ export default {
     signOutUser() {
       this.$store.commit('signOutUser')
     }
-  }
+}
 }
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-nav {
-  font-family: Montserrat;
-}
+
 .customize {
   outline: none;
   padding: 5px; 
@@ -105,14 +113,9 @@ nav {
   background-color: transparent;
 }
 .nav-item{
-  padding-top: 30px;
+  padding-top: 27px;
 }
-.imagem{
-  margin-left: 10px;
-  height: 75px;
-  border-radius: 50%;
-  padding: 10px;
-}
+
 .navbar-brand{
   font-weight: bolder;
   font-size: x-large;
@@ -131,9 +134,9 @@ nav {
 #profile{
   list-style-type: none; 
   padding: 0; 
-  margin-top: 20px;
+  margin-top: 23px;
   margin-left: 10px;
-  text-align: center;
+  text-align:center;
   text-decoration: none;
   text-decoration-line: none;
 }
