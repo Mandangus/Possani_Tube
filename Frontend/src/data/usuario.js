@@ -1,5 +1,5 @@
 const usuario = 
-    {
+{
     nome:'Cláudio Possani',
     email: 'superpossani@gmail.com',
     password: 'senha',
