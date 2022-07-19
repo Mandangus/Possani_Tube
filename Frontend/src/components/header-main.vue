@@ -35,25 +35,15 @@
                   </router-link> 
                 <li>
                   <router-link to="/"><button type="button" class="customize" @click="signOutUser"><b>Sair</b></button></router-link>
-                  <!-- <b>Sair</b> -->
                 </li>  
-                </li>
-                <li>
-                  <router-link to="/perfil" style="text-decoration: none; color: inherit;"> 
-                    <b>Minha conta</b> 
-                  </router-link> 
-                  <router-link to="/"><button type="button" class="customize" @click="exitUser">
-                    <b>| Sair</b>
-                  </button></router-link>
-                </li>  
-
+                </li> 
               </ul>
             </li> 
           
-          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
+          <li v-if="user.isAdmin" class="nav-item mx-2 pt-4">
             <router-link to="/userCrud" class="nav-link active py-0" aria-current="page">Gerenciar<br> Usuários</router-link>
           </li>
-          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
+          <li v-if="user.isAdmin" class="nav-item mx-2 pt-4">
             <router-link to="/productCrud" class="nav-link active py-0" aria-current="page">Adicionar <br> Vídeo</router-link>
           </li>
           </template>

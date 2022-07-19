@@ -66,6 +66,7 @@ export default createStore({
         },
         signOutUser(state) {
             state.user.active = false
+            state.user.isAdmin = false
             updateLocalStorage('user', state.user)
         },
         getProducts: async function(state) {

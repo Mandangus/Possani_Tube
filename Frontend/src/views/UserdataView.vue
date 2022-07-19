@@ -8,7 +8,7 @@
                 <li class="list-group-item border-0">Nome:   <b>{{user.name}}</b> </li>
                 <li class="list-group-item border-0">Email:  <b>{{user.email}}</b> </li>
                 <li class="list-group-item border-0">Endereço:   <b>{{user.address}}</b> </li>
-                <li class="list-group-item border-0" v-if="user.isAdm">Administrador </li>
+                <li class="list-group-item border-0" v-if="user.isAdmin">Administrador </li>
         
             </ul>
         </div>

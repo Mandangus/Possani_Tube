@@ -4,10 +4,10 @@
     <div class="row justify-content-md-center">
         <div class="col">
             <h3>{{aula.nome}}</h3>
-            <ModalRemove v-if="user.isAdm"></ModalRemove>
+            <ModalRemove v-if="user.isAdmin"></ModalRemove>
         </div>
     </div>
-    <div  v-if="user.isAdm" class="row justify-content-center my-2">
+    <div  v-if="user.isAdmin" class="row justify-content-center my-2">
         <div class="col-2" >
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" @click="mostraVideo = !mostraVideo">
@@ -31,17 +31,17 @@
             <div class="card border-dark p-2 mt-4" id="descript" style="width: 25rem;">
                 <h5 class="card-title">Descrição</h5>
                 <p class="card-text" style="line-height: 230%;">{{aula.description}}</p>
-                    <ModalDesc v-if="user.isAdm"></ModalDesc>
+                    <ModalDesc v-if="user.isAdmin"></ModalDesc>
             </div>
         </div>
         <div class="col- col-lg-5 ">
             <div class="card border-0" style="width: 25rem;"> 
                 <div class="row mt-4">
-                    <div class="col" v-if="!comprado || user.isAdm">
+                    <div class="col" v-if="!comprado || user.isAdmin">
                         <h3 id="preco">{{aula.price}} </h3> 
                     </div>
                     <div class="col">
-                        <ModalPreco v-if="user.isAdm"></ModalPreco>
+                        <ModalPreco v-if="user.isAdmin"></ModalPreco>
                         <button class="btn btn-primary btn-lg" type="submit" @click="addToCart" v-else-if="!comprado" >
                             <img :src="cartIcon" width="35" />
                             Comprar
@@ -54,7 +54,7 @@
                 <div class="row mt-4">
                     <div class="col">     
                         <p>{{aula.detalhes}}</p>
-                        <ModalDet v-if="user.isAdm"></ModalDet>
+                        <ModalDet v-if="user.isAdmin"></ModalDet>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import usuario from "../data/usuario.js"
+// import usuario from "../data/usuario.js"
 import ModalDesc from "@/components/modal-desc.vue"
 import ModalRemove from "../components/modal-remove.vue"
 import ModalPreco from "../components/modal-preco.vue"
@@ -74,10 +74,14 @@ import ModalDet from "../components/modal-det.vue"
 
 export default{
     name: "video_card",
+    computed: {
+        user() {
+            return this.$store.getters.userLogged
+        }
+    },
      data: () => {
         return {
             mostraVideo: false,
-            user: usuario,
             comprado:false && usuario.login,
             aula: {
                 nome: "Álgebra Linear",
@@ -98,7 +102,7 @@ export default{
     },
     methods: {
         addToCart() {
-            this.$store.commit("addToCart", this.item);
+            this.$store.commit("addToCart", this.aula);
         }
     },
     components: { ModalDesc, ModalRemove, ModalPreco, ModalDet }

@@ -12,8 +12,8 @@
                 <div class="card-text">{{ aula.price }}</div>
                 <div class="row justify-content-end">
                   <div class="col">
-                    <router-link to="/produto" > 
-                      <button class="btn btn-primary" v-if="!user.isAdm" :aula="aula">Ver produto</button> 
+                    <router-link to="/produto"> 
+                      <button class="btn btn-primary" v-if="!user.isAdmin">Ver produto</button> 
                       <button class="btn btn-primary" v-else>Gerenciar produto</button> 
                     </router-link>
                   </div>            
@@ -34,10 +34,12 @@
                 <div class="card-text">{{ aula.price }}</div>
                 <div class="row justify-content-end"> 
                   <div class="col">
-                    <router-link to="/produto" > 
-                      <button class="btn btn-primary" v-if="!user.isAdm" :aula="aula">Ver produto</button> 
-                      <button class="btn btn-primary" v-else>Gerenciar produto</button> 
+                    <router-link to="/produto" v-if="!user.isAdmin"> 
+                      <button class="btn btn-primary">Ver produto</button> 
                     </router-link>                  
+                    <router-link to="/produto" v-else> 
+                      <button class="btn btn-primary">Gerenciar produto</button> 
+                    </router-link>     
                   </div>
                 </div>
                 </div>
@@ -59,7 +61,7 @@ export default {
   name: 'App',
   mounted(){
     window.addEventListener("load", () => this.$store.commit('getProducts'));
-},
+  },
   computed: {
     aulas() {
       return this.$store.getters.storeProducts

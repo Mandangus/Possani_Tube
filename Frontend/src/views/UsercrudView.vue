@@ -14,10 +14,8 @@
     <div class="col">
         <div class="row">
             <div class="col">
-                <!-- <router-link to="/userCrud"> -->
-                <button v-if="user.isAdm" type="button" class="btn btn-primary" @click="demoteUser(user.email)">Remover ADM</button>
+                <button v-if="user.isAdmin" type="button" class="btn btn-primary" @click="demoteUser(user.email)">Remover ADM</button>
                 <button v-else type="button" class="btn btn-success" @click="promoteUser(user.email)">Tornar ADM</button>
-                <!-- </router-link> -->
             </div>
             <div class="row my-2">
                 <div class="col">
@@ -72,7 +70,7 @@ export default{
             fetch(route, {method: 'PUT'});	
             for (let i = 0; i < this.users.length; i++) {
                 if (this.users[i].email === email) {
-                    this.users[i].isAdm = true
+                    this.users[i].isAdmin = true
                     break;
                 }
             }
@@ -86,7 +84,7 @@ export default{
             fetch(route, {method: 'PUT'});	
             for (let i = 0; i < this.users.length; i++) {
                 if (this.users[i].email === email) {
-                    this.users[i].isAdm = false
+                    this.users[i].isAdmin = false
                     break;
                 }
             }	
