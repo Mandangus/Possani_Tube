@@ -26,38 +26,38 @@
               <li><router-link to="/" class="dropdown-item" >Novas Matérias</router-link></li>
             </ul>
           </li>
-          <template v-if="user.login">
-            <li class="py-0">
-              <router-link to="/perfil"><img src="@/assets/icones/Profile_avatar_placeholder_large.png" class="imagem mt-2"></router-link>          
-            </li>              
-            <li>
-              <ul id="profile">
-                <li>
-                  <router-link to="/perfil" style="text-decoration: none; color: inherit; font-weight: 500;"> 
-                    <b>Minha conta</b>
-                  </router-link> 
-                <li>
-                  <router-link to="/"><button type="button" class="customize" @click="exitUser"><b>Sair</b></button></router-link>
-                  <!-- <b>Sair</b> -->
-                </li>  
-                </li>
-              </ul>
-            </li>
-          <li v-if="user.isAdm" class="nav-item mx-4">
-            <router-link to="/userCrud" class="nav-link active py-0" aria-current="page">Gerenciar Usuários</router-link>
+          <template v-if="user.login">          
+          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
+            <router-link to="/userCrud" class="nav-link active py-0" aria-current="page">Gerenciar<br> Usuários</router-link>
           </li>
-          <li v-if="user.isAdm" class="nav-item">
-            <router-link to="/productCrud" class="nav-link active py-0" aria-current="page">Adicionar Vídeo</router-link>
+          <li v-if="user.isAdm" class="nav-item mx-2 pt-4">
+            <router-link to="/productCrud" class="nav-link active py-0" aria-current="page">Adicionar <br> Vídeo</router-link>
           </li>
           </template>
         <li v-else class="mb-3">
-            <router-link to="/login" style="text-decoration: none; color: inherit; font-weight: 500;">
+            <router-link to="/login" style="text-decoration: none; color: inherit;">
             <ul id="login">
              <li >Faça <b>login</b> ou</li>
              <li>Crie seu <b>cadastro</b></li>
             </ul>
             </router-link>
-          </li> 
+          </li>
+                      <li>
+              <ul id="profile">
+                <li>
+                  Olá, {{user.name}}
+                </li>
+                <li>
+                  <router-link to="/perfil" style="text-decoration: none; color: inherit;"> 
+                    <b>Minha conta</b> 
+                  </router-link> 
+                  <router-link to="/"><button type="button" class="customize" @click="exitUser">
+                    <b>| Sair</b>
+                  </button></router-link>
+                </li>  
+
+              </ul>
+            </li> 
           
             
           
@@ -89,17 +89,14 @@ export default {
   methods: {
     exitUser() {
       this.user.login = false;
-    }
+    },
   }
 }
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-nav {
-  font-family: Montserrat;
-}
+
 .customize {
   outline: none;
   padding: 5px; 
@@ -108,14 +105,9 @@ nav {
   background-color: transparent;
 }
 .nav-item{
-  padding-top: 30px;
+  padding-top: 27px;
 }
-.imagem{
-  margin-left: 10px;
-  height: 75px;
-  border-radius: 50%;
-  padding: 10px;
-}
+
 .navbar-brand{
   font-weight: bolder;
   font-size: x-large;
@@ -134,9 +126,9 @@ nav {
 #profile{
   list-style-type: none; 
   padding: 0; 
-  margin-top: 20px;
+  margin-top: 23px;
   margin-left: 10px;
-  text-align: center;
+  text-align:center;
   text-decoration: none;
   text-decoration-line: none;
 }
